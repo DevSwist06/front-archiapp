@@ -1,7 +1,7 @@
 
 
 // Adresse du back à modifier selon le contexte (localhost ou déploiement)
-const BACK_URL = 'http://localhost:8080';
+const BACK_URL = 'https://back-archiapp.onrender.com';
 
 // Fonction pour charger les messages depuis le back
 function fetchAndDisplayMessages() {
