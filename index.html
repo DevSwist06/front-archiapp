@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Service de Messages</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Mini Service de Messages</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Messages</h2>
+            <ul id="messages-list">
+                <li>Message 1 : Ceci est un message d'exemple.</li>
+                <li>Message 2 : Un autre message pour remplir.</li>
+                <li>Message 3 : Bonjour à tous !</li>
+                <li>Message 4 : Ceci est un test.</li>
+                <li>Message 5 : Dernier message fictif.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Poster un nouveau message</h2>
+            <textarea id="new-message" rows="3" cols="40" placeholder="Votre message..."></textarea>
+            <br>
+            <button id="send-btn">Envoyer</button>
+            <button id="update-btn">Mise à jour</button>
+        </section>
+        <section>
+            <h2>Changer de style</h2>
+            <button id="toggle-style">Mode Sombre/Clair</button>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
