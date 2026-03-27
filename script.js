@@ -16,9 +16,10 @@ function fetchAndDisplayMessages() {
 function update(messages) {
     const ul = document.getElementById('messages-list');
     ul.innerHTML = '';
-    messages.forEach(function(m) {
+    messages.forEach(function(m, i) {
         const li = document.createElement('li');
         li.textContent = m;
+        // Les styles de bulle sont gérés par CSS : alternance left/right
         ul.appendChild(li);
     });
 }
@@ -44,10 +45,40 @@ document.getElementById('send-btn').addEventListener('click', function() {
 });
 
 // Chargement initial des messages
+
 fetchAndDisplayMessages();
-updateDetailed(msgs);
 
 // --- Changement de style clair/sombre ---
-document.getElementById('toggle-style').addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
+
+// --- Toggle dark mode with icon update ---
+const toggleBtn = document.getElementById('toggle-style');
+const themeIcon = document.getElementById('theme-icon');
+
+function setTheme(dark) {
+    if (dark) {
+        document.body.classList.add('dark-mode');
+        themeIcon.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        themeIcon.textContent = '🌙';
+    }
+}
+
+// Save theme in localStorage
+function saveThemePref(isDark) {
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+// Load theme from localStorage
+function loadThemePref() {
+    return localStorage.getItem('theme') === 'dark';
+}
+
+toggleBtn.addEventListener('click', function() {
+    const isDark = !document.body.classList.contains('dark-mode');
+    setTheme(isDark);
+    saveThemePref(isDark);
 });
+
+// Initial theme
+setTheme(loadThemePref());

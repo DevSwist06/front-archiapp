@@ -12,6 +12,26 @@ header {
     padding: 1em 0;
     text-align: center;
     margin-bottom: 2em;
+    position: relative;
+}
+/* Toggle theme button in header */
+#toggle-style {
+    position: absolute;
+    top: 1em;
+    right: 1.5em;
+    background: none;
+    border: none;
+    font-size: 1.7em;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.2s;
+    outline: none;
+}
+#toggle-style:active {
+    transform: scale(0.95);
+}
+body.dark-mode #toggle-style {
+    color: #4a90e2;
 }
 
 main {
@@ -28,23 +48,51 @@ h1, h2 {
 }
 
 ul#messages-list {
-    background: #e9ecef;
-    padding: 1em;
+    background: none;
+    padding: 0.5em 0;
     border-radius: 6px;
-    list-style-type: disc;
+    list-style: none;
+    margin: 0;
+    list-style-type: none;
 }
 
 ul#messages-list li {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.7em;
+    max-width: 70%;
+    padding: 0.7em 1.1em;
+    border-radius: 18px;
+    background: #e0e6f6;
+    color: #1a233a;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    position: relative;
+    word-break: break-word;
+    font-size: 1.08em;
+    align-self: flex-start;
+    margin-left: 0;
+    margin-right: auto;
+    transition: background 0.2s, color 0.2s;
+    border: 1.5px solid #b0b8d1;
 }
 
-textarea {
-    width: 100%;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    padding: 0.5em;
-    font-size: 1em;
-    margin-bottom: 1em;
+ul#messages-list li:nth-child(even) {
+    background: #4a90e2;
+    color: #fff;
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 0;
+    border: 1.5px solid #357ab8;
+}
+
+body.dark-mode ul#messages-list li {
+    background: #232b3a;
+    color: #e0e6f6;
+    border: 1.5px solid #3a4661;
+}
+body.dark-mode ul#messages-list li:nth-child(even) {
+    background: #357ab8;
+    color: #fff;
+    border: 1.5px solid #4a90e2;
+}
 }
 
 button {
